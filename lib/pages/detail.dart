@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:readiverse_app/helpers/components/popup_wigdet.dart';
 class Detail extends StatelessWidget {
   const Detail({Key? key}) : super(key: key);
 
@@ -50,25 +52,25 @@ class Detail extends StatelessWidget {
 
                     ),
 
-                //     RatingBar.builder(
-                //       initialRating: 3,
-                //       minRating: 1,
-                //       direction: Axis.horizontal,
-                //       allowHalfRating: true,
-                //       itemCount: 5,
-                //       itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
-                //       itemSize: 20  ,
-                //       itemBuilder: (context, _) => Icon(
-                //         Icons.star,
-                //         color: Colors.amber,
-                //       ),
-                //       onRatingUpdate: (rating) {
-                //         print('Rating: $rating');
-                //         // Di sini Anda dapat melakukan sesuatu dengan nilai rating yang diberikan.
-                //       },
-                //     ),
-                //   ],
-                // ),
+                    RatingBar.builder(
+                      initialRating: 3,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
+                      itemSize: 20  ,
+                      itemBuilder: (context, _) => Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      onRatingUpdate: (rating) {
+                        print('Rating: $rating');
+                        // Di sini Anda dapat melakukan sesuatu dengan nilai rating yang diberikan.
+                      },
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: 12,
                 ),
@@ -101,8 +103,6 @@ class Detail extends StatelessWidget {
                 ),
               ],
             ),
-          ]
-          )
           ),
           bottomNavigationBar: Container(
             height: 50,
@@ -112,9 +112,7 @@ class Detail extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 builder: (BuildContext context) {
-                  return Container(
-
-                  );
+                  return PopWidget();
                 },
               );
             },
