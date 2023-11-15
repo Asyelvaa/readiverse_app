@@ -7,6 +7,7 @@ import 'package:readiverse_app/pages/home_page.dart';
 import 'package:readiverse_app/pages/profile_page.dart';
 import 'package:readiverse_app/pages/read_book.dart';
 import 'package:readiverse_app/pages/search_page.dart';
+import 'package:readiverse_app/routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Readiverse',
+      initialRoute: Routes.HOME_PAGE,
       home: HomePage()
     );
   }

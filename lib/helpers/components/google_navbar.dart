@@ -24,7 +24,7 @@ class Navbar extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 45, vertical: 20),
             child: GNav(
-              rippleColor: primaryColor,
+              rippleColor: purple1,
               hoverColor: Colors.grey[100]!,
               activeColor: Colors.black,
               gap: 8,
