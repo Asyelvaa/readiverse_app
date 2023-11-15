@@ -1,15 +1,17 @@
-class Result {
+class Book {
+  String? id;
   String? title;
   String? author;
   String? description;
   String? publishedDate;
   String? pages;
-  String? categories;
+  List<String>? categories;
   String? rating;
   String? priceUSD;
   String? images;
 
-  Result({
+  Book({
+    this.id,
     this.title,
     this.author,
     this.description,
@@ -20,19 +22,35 @@ class Result {
     this.priceUSD,
     this.images,
   });
-
-  factory Result.fromJson(Map<String, dynamic> json) {
-    return Result(
-      title: json['title'],
-      author: json['authors'],
-      description: json['description'],
-      publishedDate: json['publishedDate'],
-      pages: json['pageCount'],
-      categories: json['categories'],
-      rating: json['averageRating'],
-      images: json['thumbnail'],
-      priceUSD: json['retailPrice']
+  
+  factory Book.fromJson(Map<String, dynamic> book) {
+    var volumeInfo = book['volumeInfo'];
+    var saleInfo = book['saleInfo'];
+    return Book(
+      id: book['id'],
+      title: volumeInfo['title'],
+      author: volumeInfo['authors'] != null
+      ? volumeInfo['authors'].join(', ')
+      : 'not available',
+      description: volumeInfo['description'] ?? "---",
+      publishedDate: volumeInfo['publishedDate'] ?? "---",
+      pages: '${volumeInfo['pageCount']}',
+      categories: volumeInfo['categories'] == null
+      ? []
+      : (volumeInfo['categories'] as List<dynamic>)
+        .map((Category) => Category.toString())
+        .toList(),
+      rating: volumeInfo['averageRating'] != null
+      ? volumeInfo['averageRating'].toString()
+      : '---',
+      priceUSD: saleInfo['retailPrice'] != null
+      ? '${saleInfo['retailPrice']['amount']}'
+      : 'not available',
+      images:  volumeInfo['imageLinks']
+      ?['thumbnail'] 
+      ?? 'not available',
     );
+
   }
   
 }
