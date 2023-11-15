@@ -1,4 +1,4 @@
-  name: readiverse_app
+name: readiverse_app
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -30,8 +30,6 @@ environment:
 dependencies:
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
-  flutter:
-    sdk: flutter
   flutter_svg: ^2.0.7
   get: ^4.6.6
   google_fonts: ^6.1.0
@@ -39,10 +37,18 @@ dependencies:
   line_awesome_flutter: ^2.0.0
   persistent_bottom_nav_bar: ^5.0.2
   google_nav_bar: ^5.0.6
+  flutter:
+    sdk: flutter
+
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_rating_bar: ^4.0.0
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
