@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:readiverse_app/data/models/book_model.dart';
+import 'package:readiverse_app/models/book_model.dart';
 import 'package:readiverse_app/helpers/constant/color.dart';
 import 'package:readiverse_app/helpers/constant/fonts.dart';
 import 'package:readiverse_app/helpers/constant/themes.dart';

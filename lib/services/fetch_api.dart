@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:readiverse_app/data/models/book_model.dart';
+import 'package:readiverse_app/models/book_model.dart';
 
 class App {
   static const String baseUrl = 'https://www.googleapis.com/books/v1/volumes?';

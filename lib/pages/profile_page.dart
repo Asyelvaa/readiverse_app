@@ -127,7 +127,7 @@ class ProfilePage extends StatelessWidget {
                                               Positioned(
                                                 top: -5,
                                                 left: 5,
-                                                child: Image.asset(bookFav2, scale: 10,)
+                                                child: Image.asset(logoLikeBook, scale: 10,)
                                                 )
                                             ],
                                           ),
@@ -162,7 +162,7 @@ class ProfilePage extends StatelessWidget {
 
 
                                                 left: -2,
-                                                child: Image.asset(logoBook, scale: 8.5,))
+                                                child: Image.asset(logoReadBook, scale: 8.5,))
                                             ],
                                           ),
                                         ),
