@@ -7,7 +7,7 @@ import 'package:readiverse_app/pages/profile_page.dart';
 import 'package:readiverse_app/pages/search_page.dart';
 
 class bottomNavbar extends StatelessWidget {
-  const bottomNavbar({super.key});
+  const bottomNavbar({super.key});  
   
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class bottomNavbar extends StatelessWidget {
         return [
           HomePage(),
           SearchPage(),
-          ProfilePage()
+          ProfilePage(),
         ];
     }
 
@@ -48,17 +48,24 @@ class bottomNavbar extends StatelessWidget {
 
 
     return PersistentTabView(
-      context, 
-      controller: _controller,
-      screens: _buildScreens(),
-      items:_navBarsItems(),
-      confineInSafeArea: true,
-      navBarHeight: 60,
-
-        hideNavigationBarWhenKeyboardShows: true, 
+        context, 
+        controller: _controller,
+        screens: _buildScreens(),
+        items:_navBarsItems(),
+        confineInSafeArea: true,
+        navBarHeight: 80,
+        backgroundColor: whiteColor,
+        hideNavigationBarWhenKeyboardShows: true,
         decoration: NavBarDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          colorBehindNavBar: Colors.white,
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 0,
+              blurRadius: 5,
+              offset: Offset(0, 3), // changes position of shadow
+            ),
+          ]
         ),
         itemAnimationProperties: ItemAnimationProperties( 
           duration: Duration(milliseconds: 200),

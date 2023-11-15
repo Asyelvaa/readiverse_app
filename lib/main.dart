@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Readiverse',
       initialRoute: Routes.HOME_PAGE,
-      home: HomePage()
+      home: bottomNavbar()
     );
   }
 }
