@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:readiverse_app/helpers/constant/themes.dart';
 
 Widget widgetPromoverse() {
   return Container(
@@ -7,9 +8,9 @@ Widget widgetPromoverse() {
       clipBehavior: Clip.none,
        children: [
           Container(
-            height: 80,
-            width: 330,
-            child: SvgPicture.asset('assets/images/promoverse_container.svg'),
+            height: heightScreen * 0.1,
+            width: widthScreen,
+            child: SvgPicture.asset('assets/images/promoverse_container2.svg'),
           ),
           Positioned(
             right: 0,
