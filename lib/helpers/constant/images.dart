@@ -1,6 +1,6 @@
 
 // GLOBAL
-String logoReadiverse = "assets/readiverseLogo.png";
+String logoReadiverse = "assets/images/readiverseLogo.png";
 
 // GENRE
 String logoArt = "assets/images/logoArt.png";
@@ -16,7 +16,7 @@ String logoScience = "assets/images/logoScience.png";
 String logoReadBook = "assets/images/logoBook.png";
 String logoLikeBook = "assets/images/bookFav2.png";
 String good = "assets/images/good.png";
-String user = "assets/images/user.png";
+String user = "assets/images/person.png";
 
 // DECORATION
 String stcBook = "assets/images/stc_book.png";

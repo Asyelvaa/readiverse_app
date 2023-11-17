@@ -6,7 +6,8 @@ import 'package:readiverse_app/helpers/constant/themes.dart';
 // heading readiverse 
 TextStyle headingReadiverse = GoogleFonts.milonga(
   textStyle: TextStyle(
-    fontSize: figmaFontsize(36)
+    fontSize: figmaFontsize(36),
+    color: Color(0xffEB5E28),
   )
 );
 

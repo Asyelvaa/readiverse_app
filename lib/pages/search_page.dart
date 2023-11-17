@@ -6,6 +6,8 @@ import 'package:readiverse_app/controllers/search_page_controller.dart';
 import 'package:readiverse_app/helpers/constant/color.dart';
 import 'package:readiverse_app/helpers/constant/fonts.dart';
 import 'package:readiverse_app/helpers/constant/themes.dart';
+import 'package:readiverse_app/models/category_list.dart';
+import 'package:readiverse_app/models/category_model.dart';
 
 class SearchPage extends StatelessWidget {
   
