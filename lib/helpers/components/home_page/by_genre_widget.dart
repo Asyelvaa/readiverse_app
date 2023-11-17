@@ -13,7 +13,14 @@ Widget widgetGenre() {
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: whiteColor,
-            borderRadius: BorderRadius.circular(20)
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                blurRadius: 5,
+                offset: Offset(0, 3),
+              )
+            ]
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

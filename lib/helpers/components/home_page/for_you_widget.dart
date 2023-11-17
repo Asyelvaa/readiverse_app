@@ -48,9 +48,34 @@ Widget widgetForYou() {
                           image: DecorationImage(
                           image: NetworkImage(book.images ?? 'URL_TO_DEFAULT_IMAGE'),
                           fit: BoxFit.cover, 
+                        ),                        
                         ),
-                        
-                        ),
+                      ),
+                      // RATING
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                              decoration: BoxDecoration(
+                                color:whiteColor,
+                                borderRadius: BorderRadius.circular(16)
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(Icons.star, color:ratingColor, size: 15,),
+                                  Text(book.rating.toString(), style: GoogleFonts.poppins(
+                                    color: Colors.black,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600
+                                  ),)
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   )              
