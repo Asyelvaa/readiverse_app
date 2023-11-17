@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:readiverse_app/helpers/components/bottom_navbar.dart';
-import 'package:readiverse_app/helpers/components/navigation_bar.dart';
+import 'package:readiverse_app/helpers/components/home_page/by_genre_widget.dart';
+import 'package:readiverse_app/helpers/components/home_page/for_you_widget.dart';
 import 'package:readiverse_app/helpers/constant/color.dart';
-import 'package:readiverse_app/helpers/components/by_genre_widget.dart';
-import 'package:readiverse_app/helpers/components/for_you_widget.dart';
-import 'package:readiverse_app/helpers/components/promoverse_widget.dart';
-import 'package:readiverse_app/helpers/constant/images.dart';
+import 'package:readiverse_app/helpers/components/home_page/promoverse_widget.dart';
 import 'package:readiverse_app/helpers/constant/themes.dart';
 
 class HomePage extends StatelessWidget {
-  // const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,8 +27,8 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 15),
                 child: CircleAvatar(
                   radius: 20,
-                  backgroundColor: whiteColor,
-                  backgroundImage: AssetImage(user),
+                  backgroundColor: bgColor,
+                  // backgroundImage: AssetImage(user, ), 
                 ),
               )
             ],
@@ -53,14 +48,10 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 20),
               widgetGenre(),
               hGap5,
-              // widgetGenre(),
             ],
           ),
         ),
       ),
-     
-      
-      
     );
   }
 }

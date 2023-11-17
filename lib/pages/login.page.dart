@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:readiverse_app/helpers/constant/color.dart';
 import 'package:readiverse_app/pages/sign_up.dart';
 
 class LoginPage extends StatelessWidget {
@@ -10,7 +11,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF0B1A55),
+        backgroundColor: purple1,
         body: SingleChildScrollView(
           child: Container(
             height: MediaQuery.of(context).size.height,
