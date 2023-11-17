@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/get_instance.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:readiverse_app/controllers/profile_page_controller.dart';
-import 'package:readiverse_app/helpers/components/bottom_navbar.dart';
 import 'package:readiverse_app/helpers/constant/color.dart';
 import 'package:readiverse_app/helpers/constant/fonts.dart';
 import 'package:readiverse_app/helpers/constant/images.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:readiverse_app/helpers/constant/themes.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -280,7 +276,7 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                // READ NOW
+                // USER READ NOW
                 SizedBox(height: 20,),               
                 Padding(
                   padding: const EdgeInsets.all(10),
