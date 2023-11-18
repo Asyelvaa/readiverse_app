@@ -1,56 +1,23 @@
 import 'package:get/get.dart';
 import 'package:readiverse_app/helpers/constant/images.dart';
+import 'package:readiverse_app/models/book_model.dart';
 import 'package:readiverse_app/models/category_model.dart';
 
-class categoryList extends GetxController{
+class CategoryList extends GetxController{
   
-  RxList categorylist = [].obs;
-  @override
-  void onInit() {
-    super.onInit();
-    categorylist.value = categories;
+  final String name;
+  final RxList<Book> books = <Book>[].obs;
+
+  CategoryList(this.name);
+
+  Future<void> fetchBooks(Function fetchFunction) async {
+    try {
+      final data = await fetchFunction();
+      books.assignAll(data);
+    } catch (e) {
+      print('Error fetching books for $name category: $e');
+    }
   }
-  List<BookCategory> categories = [
-    BookCategory(
-      categoryTitle: 'Business',
-      categoryLink: 'business',
-      iconLink: logoBusiness
-    ),
-    BookCategory(
-      categoryTitle: 'History',
-      categoryLink: 'history',
-      iconLink: logoHistory
-    ),
-    BookCategory(
-      categoryTitle: 'Novel',
-      categoryLink: 'novel',
-      iconLink: logoNovel
-    ),
-    BookCategory(
-      categoryTitle: 'Art',
-      categoryLink: 'art',
-      iconLink: logoArt
-    ),
-    BookCategory(
-      categoryTitle: 'Political',
-      categoryLink: 'political',
-      iconLink: logoPolitical
-    ),
-    BookCategory(
-      categoryTitle: 'Technology',
-      categoryLink: 'technology',
-      iconLink: logoTechnology
-    ),
-    BookCategory(
-      categoryTitle: 'Self Development',
-      categoryLink: 'self-development',
-      iconLink: logoSelfDev
-    ),
-    BookCategory(
-      categoryTitle: 'Science',
-      categoryLink: 'science',
-      iconLink: logoScience
-    ),
-  ];
+
 }
 

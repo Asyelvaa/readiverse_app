@@ -14,7 +14,7 @@ class App {
 
 class Api {
 
-static const _allBook = '${App.baseUrl}books/v1/volumes?q=disney&key=${App.apiKey}';
+  static const _allBook = '${App.baseUrl}books/v1/volumes?q=disney&key=${App.apiKey}';
   Future<List<Book>> getAllBook() async {
     final response = await http.get 
     (Uri.parse(_allBook));
@@ -29,22 +29,18 @@ static const _allBook = '${App.baseUrl}books/v1/volumes?q=disney&key=${App.apiKe
   }
   
   
-  static const _category = '${App.baseUrl}scv/books/v3/lists/names.json?api-key=${App.apiKey}';
-  Future<void> getAllCategories() async {
+  Future<List<Book>> getCategoryData(String categoryName) async {
+    final _categoryBooks = '${App.baseUrl}books/v1/volumes?q=$categoryName&key=${App.apiKey}';
+    
     try {
-      final response = await http.get(Uri.parse(_category));
-      var jsonResponse = await jsonDecode(response.body);
-
-      List categoriesJsonList = jsonResponse['results'];
-      List<BookCategory> categories = [];
-      categoriesJsonList.forEach((category) 
-      { 
-        categories.add(BookCategory());
-      }
-      );
+      final response = await http.get(Uri.parse(_categoryBooks));
+      final decodeData = json.decode(response.body)['items'] as List;
+      return decodeData.map((json) => Book.fromJson(json)).toList();
     } catch (e) {
-      print('Error: $e');
+      print('Error fetching books for $categoryName category: $e');
+      return []; 
     }
-
   }
+
+
 }
