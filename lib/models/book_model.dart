@@ -9,6 +9,12 @@ class Book {
   String? rating;
   String? priceUSD;
   String? images;
+  String? accessViewStatus;
+  String? currencyCode;
+  String? amount;
+  String? saleability;
+  String? buyLink;
+
 
   Book({
     this.id,
@@ -26,6 +32,7 @@ class Book {
   factory Book.fromJson(Map<String, dynamic> book) {
     var volumeInfo = book['volumeInfo'];
     var saleInfo = book['saleInfo'];
+
     return Book(
       id: book['id'],
       title: volumeInfo['title'],
@@ -42,7 +49,7 @@ class Book {
         .toList(),
       rating: volumeInfo['averageRating'] != null
       ? volumeInfo['averageRating'].toString()
-      : '---',
+      : '4',
       priceUSD: saleInfo['retailPrice'] != null
       ? '${saleInfo['retailPrice']['amount']}'
       : 'not available',

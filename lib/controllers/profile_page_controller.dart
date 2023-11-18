@@ -13,5 +13,5 @@ class ProfilePageController extends GetxController with GetTickerProviderStateMi
     tabController = TabController(length: 2, vsync: this);
     super.onInit();
   }
-  
+
 }
