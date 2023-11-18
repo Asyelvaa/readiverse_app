@@ -17,6 +17,7 @@ String logoReadBook = "assets/images/logoBook.png";
 String logoLikeBook = "assets/images/bookFav2.png";
 String good = "assets/images/good.png";
 String user = "assets/images/person.png";
+String bookShelves = "assets/images/book_read.png";
 
 // DECORATION
 String stcBook = "assets/images/stc_book.png";
