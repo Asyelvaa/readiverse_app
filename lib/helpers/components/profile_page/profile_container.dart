@@ -104,7 +104,7 @@ class ProfileContainer extends StatelessWidget {
                                             clipBehavior: Clip.none,
                                             children: [
                                               Container(
-                                                padding: EdgeInsets.only(right: 20),
+                                                padding: EdgeInsets.only(right: 25),
                                                 height: heightScreen * 0.05,
                                                 decoration: BoxDecoration(
                                                   color: hintColor,
@@ -124,11 +124,9 @@ class ProfileContainer extends StatelessWidget {
                                                 ),
                                               ),
                                               Positioned(
-                                                top: -15,
-
-
-                                                left: -2,
-                                                child: Image.asset(logoReadBook, scale: 8.5,))
+                                                top: -7,
+                                                left: 5,
+                                                child: Image.asset(stcBook2, scale: 10,))
                                             ],
                                           ),
                                         ),
@@ -145,7 +143,7 @@ class ProfileContainer extends StatelessWidget {
                     // PROFILE PICT
                     Positioned(
                       top: -heightScreen * 0.07,
-                      left: widthScreen * 0.35,
+                      left: widthScreen * 0.33,
                       child: Container(
                         width: widthScreen * 0.3,
                         height: heightScreen * 0.3,
