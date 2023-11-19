@@ -24,7 +24,7 @@ final getPages = [
   ),
   GetPage(
     name: Routes.REGISTER_PAGE,
-    page: () => const SignUp(),
+    page: () =>  SignUp(),
   ),
   GetPage(
     name: Routes.HOME_PAGE,

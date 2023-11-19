@@ -13,9 +13,10 @@ class Detail extends StatelessWidget {
           appBar: AppBar(
             // flexibleSpace0 : FlexibleSpaceBar(),
             title: Text ('Pulang', style: GoogleFonts.poppins(
-                fontSize: 16
+                fontSize: 16,
+              color: Colors.black
             ),),
-            backgroundColor: Colors.transparent,
+            backgroundColor: Colors.white,
             leading: BackButton(
               color: Colors.black,
             ),
@@ -25,14 +26,15 @@ class Detail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Container(
                       width: 150,
                       height: 200,
+
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(16)),
-                        child: Image.asset("assets/pulang.jpg", fit: BoxFit.cover),
-                      )),
+                        child: Image.asset('assets/images/PULANG.jpg'),
+                      ),),
                 ),
                 Text("Pulang",
                   style: GoogleFonts.poppins(

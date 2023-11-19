@@ -2,133 +2,155 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
+import 'package:readiverse_app/helpers/components/input_user_widget.dart';
+import 'package:readiverse_app/helpers/constant/color.dart';
+import 'package:readiverse_app/helpers/constant/fonts.dart';
+import 'package:readiverse_app/helpers/constant/themes.dart';
 import 'package:readiverse_app/pages/login.page.dart';
 import 'login_page.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({Key? key}) : super(key: key);
+  SignUp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
-        backgroundColor: Color(0xFF0B1A55),
-        body: Container(
-          height: MediaQuery.of(context).size.height,
-          child: SingleChildScrollView(
+        backgroundColor: purple1,
+        body: SingleChildScrollView(
+          child: Container(
+            height: heightScreen,
             child: Column(
               children: [
                 // JUDUL
                 Container(
-                  width: 360,
-                  height: 227,
+                  height: heightScreen * 0.3,
                   child: Center(
                     child: Text(
                       "Readiverse",
-                      style:
-                      GoogleFonts.milonga(fontSize: 30, color: Colors.white),
+                      style: headingReadiverse.copyWith(color: whiteColor),
                     ),
                   ),
                 ),
                 // FORM
-                Container(
-                  height: 470,
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(50),
-                          topRight: Radius.circular(50))),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Hai!",
-                        style: GoogleFonts.poppins(
-                          fontSize: 16,
-                          color: Color(0xFF1D1617),
-                        ),
-                      ),
-                      Text(
-                        "Let's Join With us",
-                        style: GoogleFonts.poppins(
-                            fontSize: 20,
-                            color: Color(0xFF1D1617),
-                            fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      inputUser("email", Icon(Icons.email_outlined), false),
-
-                      SizedBox(
-                        height: 5,
-                      ),
-                      inputUser("Password", Icon(Icons.lock_outlined), true),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      inputUser("Username", Icon(Icons.people_outline), false),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF0B1A55),
-                              fixedSize: Size(316, 50),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                          child: Text(
-                            "Login",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white),
-                          )),
-                      Text(
-                        "or",
-                        style: GoogleFonts.poppins(fontSize: 14),
-                      ),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFFFFFFF),
-                              fixedSize: Size(316, 50),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              )),
-                          child: Text(
-                            "Continue with Google",
-                            style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.black),
-                          )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                Expanded(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(50),
+                            topRight: Radius.circular(50))),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Text(
-                            "Dont have an account yet?",
-                            style: GoogleFonts.poppins(
-                                fontSize: 14, color: Colors.black),
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.to(LoginPage());
-                            },
-                            child: Text(
-                              "Login",
-                              style: GoogleFonts.poppins(
-                                  fontSize: 14, color: Color(0xFFEB5E28)),
+                          // HEADING
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 40),
+                            child: Container(
+                              child: Column(
+                                children: [
+                                  Text(
+                                      "Hai!",
+                                      style: heading2Text
+                                  ),
+                                  Text(
+                                      "Welcome back",
+                                      style: heading1Text
+                                  ),
+                                ],
+                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    ],
+                          ),
+                          // TEXTFIElD
+                          Container(
+
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  child: inputUser("Username", Icon(Icons.email_outlined), false),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  child: inputUser("Email", Icon(Icons.email_outlined), false),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 5),
+                                  child: inputUser("Password", Icon(Icons.lock_outline), true),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          SizedBox(
+                            height: 40,
+                          ),
+                          // BUTTON
+                          Container(
+                            child: Column(
+                              children :[
+                                ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        fixedSize: Size(widthScreen, 60),
+                                        backgroundColor:purple1,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(20),
+                                        )),
+                                    child: Text(
+                                      "Login",
+                                      style: heading2Text.copyWith(color: whiteColor, fontSize: 16),
+                                    )),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 5),
+                                  child: Text(
+                                    "or",
+                                    style: heading3Text,
+                                  ),
+                                ),
+                                ElevatedButton(
+                                    onPressed: () {
+
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        backgroundColor: whiteColor,
+                                        fixedSize: Size(widthScreen, 60),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(20),
+                                        )),
+                                    child: Text(
+                                      "Continue with Google",
+                                      style: heading2Text. copyWith(fontSize: 16),
+                                    )),
+                                SizedBox(
+                                  height: 30,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                        "Already have account??",
+                                        style: heading3Text
+                                    ),
+                                    InkWell(
+                                      onTap: (){
+                                        Get.to(LoginPage());
+                                      },
+                                      child:Text(
+                                        " Register",
+                                        style: heading3Text.copyWith(color: purple2),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ]
+                    ),
                   ),
                 ),
               ],
@@ -136,17 +158,5 @@ class SignUp extends StatelessWidget {
           ),
         ));
   }
-}
-
-Widget inputUser(String hintText, Icon prefix, obsecure) {
-  return TextFormField(
-    obscureText: obsecure ,
-    decoration: InputDecoration(
-        hintText: hintText,
-        prefixIcon: prefix,
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
-            borderSide: BorderSide(color: Color(0xFFCCC4B6), width: 2.0))),
-  );
 }
 
