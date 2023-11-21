@@ -65,16 +65,18 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         // TEXTFIElD
-                        Container(
-                        child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              child: inputUser("Email", Icon(Icons.email_outlined), false),
-                            ),
-                            inputUser("Password", Icon(Icons.lock_outline), true),
-                          ],
-                        ),
+                        Center(
+                          child: Container(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 10),
+                                child: inputUser("Email", Icon(Icons.email_outlined), false),
+                              ),
+                              inputPassword("Password", Icon(Icons.lock_outline), true),
+                            ],
+                          ),
+                          ),
                         ),
 
                         SizedBox(

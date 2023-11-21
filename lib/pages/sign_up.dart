@@ -77,7 +77,7 @@ class SignUp extends StatelessWidget {
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(vertical: 5),
-                                  child: inputUser("Password", Icon(Icons.lock_outline), true),
+                                  child: inputPassword("Password", Icon(Icons.lock_outline), true),
                                 ),
                               ],
                             ),
@@ -140,7 +140,7 @@ class SignUp extends StatelessWidget {
                                         Get.to(LoginPage());
                                       },
                                       child:Text(
-                                        " Register",
+                                        " Login",
                                         style: heading3Text.copyWith(color: purple2),
                                       ),
                                     )

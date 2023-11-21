@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget inputUser(String hintText, Icon prefix, bool obscure) {
+Widget inputPassword(String hintText, Icon prefix, bool obscure) {
   return TextFormField(
     obscureText: obscure,
     decoration: InputDecoration(
@@ -17,6 +17,20 @@ Widget inputUser(String hintText, Icon prefix, bool obscure) {
           obscure = !obscure;
         },
       ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(14),
+        borderSide: BorderSide(color: Color(0xFFCCC4B6), width: 2.0),
+      ),
+    ),
+  );
+}
+
+Widget inputUser(String hintText, Icon prefix, bool obscure) {
+  return TextFormField(
+    obscureText: obscure,
+    decoration: InputDecoration(
+      hintText: hintText,
+      prefixIcon: prefix,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(14),
         borderSide: BorderSide(color: Color(0xFFCCC4B6), width: 2.0),
