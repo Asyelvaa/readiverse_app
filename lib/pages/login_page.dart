@@ -1,11 +1,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:readiverse_app/global/components/bottom_navbar.dart';
 import 'package:readiverse_app/global/components/input_user_widget.dart';
 import 'package:readiverse_app/global/constant/color.dart';
 import 'package:readiverse_app/global/constant/fonts.dart';
 import 'package:readiverse_app/global/constant/themes.dart';
 import 'package:readiverse_app/pages/sign_up.dart';
+
+import '../routes/app_routes.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -66,7 +69,7 @@ class LoginPage extends StatelessWidget {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.symmetric(vertical: 10),
-                                child: inputUser("Email", Icon(Icons.email_outlined), false),
+                                child: inputUser("Email", Icon(Icons.email_outlined)),
                               ),
                               inputPassword("Password", Icon(Icons.lock_outline), true),
                             ],
@@ -83,7 +86,7 @@ class LoginPage extends StatelessWidget {
                             children :[
                               ElevatedButton(
                                 onPressed: () {
-
+                                  Get.to(bottomNavbar());
                                 },
                                 style: ElevatedButton.styleFrom(
                                   fixedSize: Size(widthScreen, 60),
@@ -128,7 +131,7 @@ class LoginPage extends StatelessWidget {
                                   ),
                                   InkWell(
                                     onTap: (){
-                                      Get.to(SignUp());
+                                      Get.toNamed('/register');
                                     },
                                     child:Text(
                                       " Register",

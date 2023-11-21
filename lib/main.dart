@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:readiverse_app/global/components/bottom_navbar.dart';
+import 'package:readiverse_app/pages/login_page.dart';
 import 'package:readiverse_app/routes/app_routes.dart';
 
 
@@ -17,8 +18,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Readiverse',
-      // initialRoute: Routes.HOME_PAGE,
-      home: LoginPage()
+
+      home: LoginPage(),
     );
   }
 }

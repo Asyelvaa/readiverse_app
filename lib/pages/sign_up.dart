@@ -5,7 +5,8 @@ import 'package:readiverse_app/global/components/input_user_widget.dart';
 import 'package:readiverse_app/global/constant/color.dart';
 import 'package:readiverse_app/global/constant/fonts.dart';
 import 'package:readiverse_app/global/constant/themes.dart';
-import 'package:readiverse_app/pages/login.page.dart';
+import 'package:readiverse_app/pages/login_page.dart';
+import 'package:readiverse_app/routes/app_routes.dart';
 
 class SignUp extends StatelessWidget {
   SignUp({Key? key}) : super(key: key);
@@ -53,7 +54,7 @@ class SignUp extends StatelessWidget {
                                       style: heading2Text
                                   ),
                                   Text(
-                                      "Welcome back",
+                                      "Let’s Join With Us",
                                       style: heading1Text
                                   ),
                                 ],
@@ -67,11 +68,11 @@ class SignUp extends StatelessWidget {
                               children: [
                                 Padding(
                                   padding: EdgeInsets.symmetric(vertical: 5),
-                                  child: inputUser("Username", Icon(Icons.email_outlined), false),
+                                  child: inputUser("Username", Icon(Icons.people)),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(vertical: 5),
-                                  child: inputUser("Email", Icon(Icons.email_outlined), false),
+                                  child: inputUser("Email", Icon(Icons.email_outlined)),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(vertical: 5),
@@ -90,7 +91,7 @@ class SignUp extends StatelessWidget {
                               children :[
                                 ElevatedButton(
                                     onPressed: () {
-
+                                      Get.toNamed(Routes.HOME_PAGE);
                                     },
                                     style: ElevatedButton.styleFrom(
                                         fixedSize: Size(widthScreen, 60),
@@ -135,7 +136,7 @@ class SignUp extends StatelessWidget {
                                     ),
                                     InkWell(
                                       onTap: (){
-                                        Get.to(LoginPage());
+                                        Get.toNamed('/login');
                                       },
                                       child:Text(
                                         " Login",

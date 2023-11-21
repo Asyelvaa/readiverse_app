@@ -97,7 +97,7 @@ class SearchPage extends StatelessWidget {
                       final book = category.books[index];
                       return  InkWell(
                         onTap: () {
-                          Get.to(DetailPage());
+                          Get.to(DetailPage(), arguments: "FWbqAwAAQBAJ");
                         },
                         child: BookCardWidget(
                           book.images ?? 'URL_TO_DEFAULT_IMAGE', 

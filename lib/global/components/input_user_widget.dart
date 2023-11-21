@@ -1,20 +1,28 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:readiverse_app/controllers/login_controller.dart';
 
-Widget inputPassword(String hintText, Icon prefix, bool obscure) {
+Widget inputPassword(String hintText, Icon prefix, bool isObscure) {
+  final controller = Get.put(LoginController());
+
   return TextFormField(
-    obscureText: obscure,
+    controller: controller.ctrPassword,
+    obscureText: isObscure,
     decoration: InputDecoration(
       hintText: hintText,
       prefixIcon: prefix,
       suffixIcon: IconButton(
         icon: Icon(
-          obscure ? Icons.visibility_off : Icons.visibility,
+          isObscure
+              ? Icons.visibility_off
+              : Icons.visibility,
           color: Colors.grey,
         ),
         onPressed: () {
           // Toggle obfuscation status
-          obscure = !obscure;
+          controller.togglePasswordVisibility();
+
         },
       ),
       border: OutlineInputBorder(
@@ -25,9 +33,8 @@ Widget inputPassword(String hintText, Icon prefix, bool obscure) {
   );
 }
 
-Widget inputUser(String hintText, Icon prefix, bool obscure) {
+Widget inputUser(String hintText, Icon prefix) {
   return TextFormField(
-    obscureText: obscure,
     decoration: InputDecoration(
       hintText: hintText,
       prefixIcon: prefix,

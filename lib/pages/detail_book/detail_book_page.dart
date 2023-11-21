@@ -7,9 +7,9 @@ import 'package:readiverse_app/global/constant/color.dart';
 import 'package:readiverse_app/global/constant/fonts.dart';
 import 'package:readiverse_app/global/constant/images.dart';
 import 'package:readiverse_app/models/book_model.dart';
-class DetailPage extends StatelessWidget {
+class DetailPage extends GetView<DetailController> {
   // final String bookId;
-  final DetailController controller = DetailController();
+
 
   // DetailPage({this.bookId}) {
   //   controller.fetchBookDetails(bookId);
@@ -17,12 +17,17 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final String bookId = Get.arguments;
+    final DetailController controller = DetailController("9eeatAEACAAJ");
+
+    print(controller.book);
     return Scaffold(
       backgroundColor: bgColor,
         appBar: AppBar(
           title: Text (
-            // controller.books[0].title  ?? 'Unknown Title',
-            'Book Title',
+
+            controller.book.title ?? "Unknown Title",
             style: heading2Text
           ),
           backgroundColor: Colors.transparent,
@@ -31,61 +36,66 @@ class DetailPage extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        body: GetBuilder<DetailController>(
-        builder: (controller) {
-           if (controller.books.isEmpty) {
-            return CircularProgressIndicator();
-          } else {
-            return buildDetailBook(controller.books[0]);
-          }
-        },
-      ),
-        bottomNavigationBar: 
-        Padding(
-          padding: const EdgeInsets.all(15),
-          child: Row(
-            children: [
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: purple1,
-                    ),
-                  child: Icon(Icons.bookmark_outline_rounded, color: whiteColor,),
-                ),
-              ),
-              SizedBox(width: 10,),
-              Expanded(
-                child: InkWell(
-                  onTap: () {
-                    showModalBottomSheet(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return GetItWidget();
-                        },
-                    );
-                  },
-                  child: Container(
-                    height: 50,  
-                    decoration: BoxDecoration(
-                      color: purple1,
-                      borderRadius: BorderRadius.circular(16)
-                    ),         
-                    child: Center(
-                      child: Text(
-                          "Get it",
-                          style: heading2Text.copyWith(color: whiteColor)
-                        ),
-                    )
-                    ),
-                  ),
-                ),                
-            ],
-          ),
-        )
+      //   body: GetBuilder<DetailController>(
+      //   builder: (controller) {
+      //      if (controller.books.isEmpty) {
+      //       return CircularProgressIndicator();
+      //     } else {
+      //       return buildDetailBook(controller.books[0]);
+      //     }
+      //   },
+      // ),
+      //   bottomNavigationBar:
+      //   Padding(
+      //     padding: const EdgeInsets.all(15),
+      //     child: Row(
+      //       children: [
+      //         InkWell(
+      //           onTap: () {},
+      //           child: Container(
+      //             width: 50,
+      //             height: 50,
+      //             decoration: BoxDecoration(
+      //               borderRadius: BorderRadius.circular(16),
+      //               color: purple1,
+      //               ),
+      //             child: Icon(Icons.bookmark_outline_rounded, color: whiteColor,),
+      //           ),
+      //         ),
+      //         SizedBox(width: 10,),
+      //         Expanded(
+      //           child: InkWell(
+      //             onTap: () {
+      //               Get.bottomSheet(
+      //                   GetItWidget(),
+      //                 shape: OutlineInputBorder(
+      //                   borderRadius:
+      //                     BorderRadius.only(
+      //                         topLeft: Radius.circular(50),
+      //                         topRight: Radius.circular(50)),
+      //
+      //                 )
+      //
+      //               );
+      //             },
+      //             child: Container(
+      //               height: 50,
+      //               decoration: BoxDecoration(
+      //                 color: purple1,
+      //                 borderRadius: BorderRadius.circular(16)
+      //               ),
+      //               child: Center(
+      //                 child: Text(
+      //                     "Get it",
+      //                     style: heading2Text.copyWith(color: whiteColor)
+      //                   ),
+      //               )
+      //               ),
+      //             ),
+      //           ),
+      //       ],
+      //     ),
+      //   )
     );
   }
 }
