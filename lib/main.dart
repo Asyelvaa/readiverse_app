@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Readiverse',
-      initialRoute: Routes.HOME_PAGE,
-      home: bottomNavbar()
+      // initialRoute: Routes.HOME_PAGE,
+      home: LoginPage()
     );
   }
 }
