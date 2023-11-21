@@ -40,6 +40,7 @@ dependencies:
   flutter:
     sdk: flutter
   percent_indicator: ^4.2.3
+  flutter_rating_bar: ^4.0.0
 
 
 
@@ -47,7 +48,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_rating_bar: ^4.0.0
 
 
 
@@ -62,6 +62,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/logos/
+    - assets/sticker/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

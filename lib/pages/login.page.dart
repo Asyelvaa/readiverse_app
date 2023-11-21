@@ -1,15 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
-
-import 'package:readiverse_app/helpers/components/input_user_widget.dart';
-import 'package:readiverse_app/helpers/constant/color.dart';
-import 'package:readiverse_app/helpers/constant/fonts.dart';
-import 'package:readiverse_app/helpers/constant/themes.dart';
-
-import 'package:readiverse_app/helpers/constant/color.dart';
-
+import 'package:readiverse_app/global/components/input_user_widget.dart';
+import 'package:readiverse_app/global/constant/color.dart';
+import 'package:readiverse_app/global/constant/fonts.dart';
+import 'package:readiverse_app/global/constant/themes.dart';
 import 'package:readiverse_app/pages/sign_up.dart';
 
 class LoginPage extends StatelessWidget {

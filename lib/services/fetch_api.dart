@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:readiverse_app/models/book_model.dart';
-import 'package:readiverse_app/models/category_list.dart';
+import 'package:readiverse_app/controllers/category_list.dart';
 import 'package:readiverse_app/models/category_model.dart';
 
 class App {
@@ -29,7 +29,7 @@ class Api {
   }
   
   
-  Future<List<Book>> getCategoryData(String categoryName) async {
+  Future<List<Book>> getCategoryData(String categoryName,  String categoryImage) async {
     final _categoryBooks = '${App.baseUrl}books/v1/volumes?q=$categoryName&key=${App.apiKey}';
     
     try {
@@ -39,6 +39,23 @@ class Api {
     } catch (e) {
       print('Error fetching books for $categoryName category: $e');
       return []; 
+    }
+  }
+
+  Future<List<Book>> getDetailBooks(booksId) async {
+  final _detailBooks = '${App.baseUrl}books/v1/volumes?$booksId&key=${App.apiKey}';
+
+    final response = await http.get 
+    (Uri.parse(_detailBooks));
+    if (response.statusCode == 200) {
+
+      final List<dynamic> data = json.decode(response.body)['items'];
+      List<Book> books = data.map((item) => Book.fromJson(item)).toList();
+
+      return books;
+
+    } else {
+        throw Exception('Failed to load data. Status code: ${response.statusCode}');
     }
   }
 
