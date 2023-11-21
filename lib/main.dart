@@ -3,6 +3,7 @@ import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:readiverse_app/global/components/bottom_navbar.dart';
 import 'package:readiverse_app/routes/app_routes.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
