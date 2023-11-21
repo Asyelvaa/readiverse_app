@@ -42,22 +42,44 @@ class Api {
     }
   }
 
-  Future<List<Book>> getDetailBooks(booksId) async {
-  final _detailBooks = '${App.baseUrl}books/v1/volumes?$booksId&key=${App.apiKey}';
+  //TODO
+  // Future<List<Book>> getDetailBooks(booksId) async {
+  // final _detailBooks = '${App.baseUrl}books/v1/volumes?$booksId&key=${App.apiKey}';
+  //
+  //   final response = await http.get
+  //   (Uri.parse(_detailBooks));
+  //   if (response.statusCode == 200) {
+  //
+  //     final List<dynamic> data = json.decode(response.body)['items'];
+  //     List<Book> books = data.map((item) => Book.fromJson(item)).toList();
+  //
+  //     return books;
+  //
+  //   } else {
+  //       throw Exception('Failed to load data. Status code: ${response.statusCode}');
+  //   }
+  // }
 
-    final response = await http.get 
-    (Uri.parse(_detailBooks));
+  Future<Book> getDetailBook(String bookId) async {
+    final _detailBook = '${App.baseUrl}books/v1/volumes?$bookId&key=${App.apiKey}';
+
+    final response = await http.get(Uri.parse(_detailBook));
+
     if (response.statusCode == 200) {
+      final dynamic data = json.decode(response.body)['items'];
 
-      final List<dynamic> data = json.decode(response.body)['items'];
-      List<Book> books = data.map((item) => Book.fromJson(item)).toList();
-
-      return books;
+      if (data != null && data.isNotEmpty) {
+        final Book book = Book.fromJson(data[0]); // Assuming you want the first book if there are multiple results
+        return book;
+      } else {
+        throw Exception('No data found for book with ID: $bookId');
+      }
 
     } else {
-        throw Exception('Failed to load data. Status code: ${response.statusCode}');
+      throw Exception('Failed to load data. Status code: ${response.statusCode}');
     }
   }
+
 
 
 }

@@ -12,7 +12,8 @@ class GetItWidget extends StatelessWidget {
     return  Container(
       height:300,
       decoration: BoxDecoration(
-          borderRadius: 
+        color: whiteColor,
+        borderRadius:
           BorderRadius.only(
             topLeft: Radius.circular(50),
             topRight: Radius.circular(50)),
