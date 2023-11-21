@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:readiverse_app/pages/detail.dart';
-import 'package:readiverse_app/pages/home_page.dart';
+import 'package:readiverse_app/pages/detail_book/detail_book_page.dart';
+import 'package:readiverse_app/pages/home_page/home_page.dart';
 import 'package:readiverse_app/pages/login.page.dart';
-import 'package:readiverse_app/pages/profile_page.dart';
-import 'package:readiverse_app/pages/read_book.dart';
-import 'package:readiverse_app/pages/search_page.dart';
+import 'package:readiverse_app/pages/profile_page/profile_page.dart';
+import 'package:readiverse_app/pages/detail_book/read_book.dart';
+import 'package:readiverse_app/pages/search_page/search_page.dart';
 import 'package:readiverse_app/pages/sign_up.dart';
 
 class Routes {
@@ -40,10 +40,10 @@ final getPages = [
   ),
   GetPage(
     name: Routes.DETAIL_BOOK_PAGE,
-    page: () => const Detail(),
+    page: () => DetailPage(),
   ),
   GetPage(
     name: Routes.READ_BOOK_PAGE,
-    page: () => const ReadBookPage(),
+    page: () => ReadBookPage(),
   ),
 ];

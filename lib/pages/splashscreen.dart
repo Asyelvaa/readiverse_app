@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:readiverse_app/helpers/constant/color.dart';
-import 'package:readiverse_app/helpers/constant/fonts.dart';
-import 'package:readiverse_app/helpers/constant/images.dart';
-import 'package:readiverse_app/helpers/constant/themes.dart';
+import 'package:readiverse_app/global/constant/color.dart';
+import 'package:readiverse_app/global/constant/fonts.dart';
+import 'package:readiverse_app/global/constant/images.dart';
+import 'package:readiverse_app/global/constant/themes.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
