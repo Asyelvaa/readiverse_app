@@ -3,10 +3,10 @@ import 'package:readiverse_app/models/book_model.dart';
 import 'package:readiverse_app/services/fetch_api.dart';
 
 class DetailController extends GetxController {
-  late final Book book;
+  // late final Book book;
 
   DetailController(String bookId) {
-    book = Book();
+    final book = Book();
     fetchBookDetails(bookId);
   }// Initialize book in the constructor
 
@@ -14,7 +14,7 @@ class DetailController extends GetxController {
   void onInit() {
     super.onInit();
 
-    // print(fetchBookDetails(bookId))
+    // print(fetchBookDetails(bookId));
   }
 
   Future<void> fetchBookDetails(String bookId) async {
@@ -25,7 +25,7 @@ class DetailController extends GetxController {
 
       print('Received book details: $bookData');
 
-      book = bookData;
+      Book book = bookData;
 
       print('Updated book data: $book');
     } catch (error) {

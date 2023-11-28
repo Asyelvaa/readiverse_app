@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:readiverse_app/controllers/detail_book.dart';
+import 'package:readiverse_app/controllers/detail_book_controller.dart';
 import 'package:readiverse_app/global/components/popup_wigdet.dart';
 import 'package:readiverse_app/global/constant/color.dart';
 import 'package:readiverse_app/global/constant/fonts.dart';
@@ -10,25 +10,45 @@ import 'package:readiverse_app/models/book_model.dart';
 class DetailPage extends GetView<DetailController> {
   // final String bookId;
 
-
-  // DetailPage({this.bookId}) {
+  // DetailPage({required this.bookId}) {
   //   controller.fetchBookDetails(bookId);
   // }
 
   @override
   Widget build(BuildContext context) {
 
-    final String bookId = Get.arguments;
-    final DetailController controller = DetailController("9eeatAEACAAJ");
+    // final String bookId = Get.arguments;
+    final DetailController controller = Get.put(DetailController("zyTCAlFPjgYC"));
 
-    print(controller.book);
-    return Scaffold(
-      backgroundColor: bgColor,
+//     print(controller.book);
+//     return GetBuilder<DetailController>(
+//   init: controller, // Initialize the controller
+//   builder: (controller) {
+//     if (controller.book == null) {
+//       // If the book is null, it means it's still being fetched
+//       return Scaffold(
+//         backgroundColor: bgColor,
+//         appBar: AppBar(
+//           title: Text(
+//             "Loading...",
+//             style: heading2Text,
+//           ),
+//           backgroundColor: Colors.transparent,
+//           elevation: 0,
+//           leading: BackButton(
+//             color: Colors.black,
+//           ),
+//         ),
+//       );
+//     } else {
+//       // If the book is available, display the details
+      return Scaffold(
+        backgroundColor: bgColor,
         appBar: AppBar(
-          title: Text (
-
-            controller.book.title ?? "Unknown Title",
-            style: heading2Text
+          title: Text(
+            // controller.book.name ?? "unkown title"
+             "Unknown Title",
+            style: heading2Text,
           ),
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -36,12 +56,17 @@ class DetailPage extends GetView<DetailController> {
             color: Colors.black,
           ),
         ),
+      );
+//     }
+//   },
+// );
+
       //   body: GetBuilder<DetailController>(
       //   builder: (controller) {
-      //      if (controller.books.isEmpty) {
+      //      if (controller.fetchBookDetails(bookId)) {
       //       return CircularProgressIndicator();
       //     } else {
-      //       return buildDetailBook(controller.books[0]);
+      //       return buildDetailBook(controller.book);
       //     }
       //   },
       // ),
@@ -73,9 +98,9 @@ class DetailPage extends GetView<DetailController> {
       //                     BorderRadius.only(
       //                         topLeft: Radius.circular(50),
       //                         topRight: Radius.circular(50)),
-      //
+      
       //                 )
-      //
+      
       //               );
       //             },
       //             child: Container(
@@ -95,8 +120,8 @@ class DetailPage extends GetView<DetailController> {
       //           ),
       //       ],
       //     ),
-      //   )
-    );
+        // )
+  //   );
   }
 }
 
