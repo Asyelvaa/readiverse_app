@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:readiverse_app/models/book_model.dart';
 import 'package:readiverse_app/pages/detail_book/detail_book_page.dart';
 import 'package:readiverse_app/pages/home_page/home_page.dart';
 import 'package:readiverse_app/pages/login_page.dart';

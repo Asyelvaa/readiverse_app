@@ -13,21 +13,6 @@ class App {
 }
 
 class Api {
-
-  static const _allBook = '${App.baseUrl}books/v1/volumes?q=disney&key=${App.apiKey}';
-  Future<List<Book>> getAllBook() async {
-    final response = await http.get 
-    (Uri.parse(_allBook));
-    if (response.statusCode == 200) {
-
-      final decodeData = json.decode(response.body)['items'] as List;
-      return decodeData.map((json) => Book.fromJson(json)).toList();
-
-    } else {
-        throw Exception('Failed to load data. Status code: ${response.statusCode}');
-    }
-  }
-  
   
   Future<List<Book>> getCategoryData(String categoryName,  String categoryImage) async {
     final _categoryBooks = '${App.baseUrl}books/v1/volumes?q=$categoryName&key=${App.apiKey}';
@@ -42,34 +27,17 @@ class Api {
     }
   }
 
-  //TODO
-  // Future<List<Book>> getDetailBooks(booksId) async {
-  // final _detailBooks = '${App.baseUrl}books/v1/volumes?$booksId&key=${App.apiKey}';
-  //
-  //   final response = await http.get
-  //   (Uri.parse(_detailBooks));
-  //   if (response.statusCode == 200) {
-  //
-  //     final List<dynamic> data = json.decode(response.body)['items'];
-  //     List<Book> books = data.map((item) => Book.fromJson(item)).toList();
-  //
-  //     return books;
-  //
-  //   } else {
-  //       throw Exception('Failed to load data. Status code: ${response.statusCode}');
-  //   }
-  // }
-
   Future<Book> getDetailBook(String bookId) async {
-    final _detailBook = '${App.baseUrl}books/v1/volumes?$bookId&key=${App.apiKey}';
-
+    
+    final _detailBook = '${App.baseUrl}books/v1/volumes/$bookId?key=${App.apiKey}';
     final response = await http.get(Uri.parse(_detailBook));
 
     if (response.statusCode == 200) {
-      final dynamic data = json.decode(response.body)['items'];
 
-      if (data != null && data.isNotEmpty) {
-        final Book book = Book.fromJson(data[0]); // Assuming you want the first book if there are multiple results
+      final dynamic data = json.decode(response.body);
+      
+      if (data['volumeInfo'].isNotEmpty) {
+        final Book book = Book.fromJson(data['volumeInfo']);
         return book;
       } else {
         throw Exception('No data found for book with ID: $bookId');

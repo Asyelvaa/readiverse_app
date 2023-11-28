@@ -29,33 +29,32 @@ class Book {
     this.images,
   });
   
-  factory Book.fromJson(Map<String, dynamic> book) {
-    var volumeInfo = book['volumeInfo'];
-    var saleInfo = book['saleInfo'];
+  factory Book.fromJson(Map book) {
+     final volumeInfo = book['volumeInfo'];
 
     return Book(
       id: book['id'],
       title: volumeInfo['title'],
       author: volumeInfo['authors'] != null
-      ? volumeInfo['authors'].join(', ')
-      : 'not available',
+        ? volumeInfo['authors'].join(', ')
+        : 'not available',
       description: volumeInfo['description'] ?? "---",
       publishedDate: volumeInfo['publishedDate'] ?? "---",
       pages: '${volumeInfo['pageCount']}',
       categories: volumeInfo['categories'] == null
-      ? []
-      : (volumeInfo['categories'] as List<dynamic>)
-        .map((Category) => Category.toString())
-        .toList(),
+        ? []
+        : (volumeInfo['categories'] as List<dynamic>)
+          .map((Category) => Category.toString())
+          .toList(),
       rating: volumeInfo['averageRating'] != null
-      ? volumeInfo['averageRating'].toString()
-      : '4',
-      priceUSD: saleInfo['retailPrice'] != null
-      ? '${saleInfo['retailPrice']['amount']}'
-      : 'not available',
+        ? volumeInfo['averageRating'].toString()
+        : '4',
+      // priceUSD: saleInfo['retailPrice'] != null
+      //   ? '${saleInfo['retailPrice']['amount']}'
+      //   : 'not available',
       images:  volumeInfo['imageLinks']
-      ?['thumbnail'] 
-      ?? 'not available',
+        ?['thumbnail'] 
+        ?? 'not available',
     );
 
   }
