@@ -80,7 +80,16 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )                
+                    ),
+                    ElevatedButton(
+                        onPressed: (){
+                          controller.signOut();
+                         },
+                      child: Text ('LogOut',
+                      style: heading2Text.copyWith(color: whiteColor, fontSize: 16),
+                      )
+                    ),
+
                   ],
                 ),
               ),

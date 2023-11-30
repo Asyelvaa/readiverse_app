@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:readiverse_app/controllers/login_controller.dart';
 import 'package:readiverse_app/global/components/bottom_navbar.dart';
 import 'package:readiverse_app/global/components/input_user_widget.dart';
 import 'package:readiverse_app/global/constant/color.dart';
@@ -15,6 +16,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller=Get.put(LoginController());
     return Scaffold(
         backgroundColor: purple1,
         body: SingleChildScrollView(
@@ -106,19 +108,18 @@ class LoginPage extends StatelessWidget {
                                 ),
                               ),
                               ElevatedButton(
-                                  onPressed: () {
-
+                                  onPressed: () async {
+                                    await controller.handleSignIn();
                                   },
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: whiteColor,
-                                      fixedSize: Size(widthScreen, 60),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20),
-                                      )),
-                                  child: Text(
-                                    "Continue with Google",
-                                    style: heading2Text. copyWith(fontSize: 16),
-                                  )),
+                                style: ElevatedButton.styleFrom(
+                                    fixedSize: Size(widthScreen, 60),
+                                    backgroundColor:whiteColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    )),
+                                  child:  Text('Sign In With Google', style: heading2Text.copyWith(fontSize: 16),),
+                                ),
+
                               SizedBox(
                                 height: 30,
                               ),
