@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299788543590",
+    "project_id": "readiverse-56028",
+    "storage_bucket": "readiverse-56028.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299788543590:android:3ae19e473e9f68c129efa7",
+        "android_client_info": {
+          "package_name": "com.example.readiverse_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSuLps4q-P9lhmCMJWYpd3kUjoiW7K0c8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
