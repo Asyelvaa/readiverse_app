@@ -6,6 +6,7 @@ import 'package:readiverse_app/pages/search_page/component_search/book_card_widg
 import 'package:readiverse_app/pages/search_page/component_search/searchbar_widget.dart';
 import 'package:readiverse_app/global/constant/color.dart';
 import 'package:readiverse_app/global/constant/fonts.dart';
+import 'package:readiverse_app/routes/app_routes.dart';
 
 class SearchPage extends StatelessWidget {
   
@@ -97,7 +98,10 @@ class SearchPage extends StatelessWidget {
                       final book = category.books[index];
                       return  InkWell(
                         onTap: () {
-                          Get.to(DetailPage(), arguments: "FWbqAwAAQBAJ");
+                          Get.toNamed(
+                            Routes.DETAIL_BOOK_PAGE, 
+                            arguments:"zyTCAlFPjgYC"
+                          );
                         },
                         child: BookCardWidget(
                           book.images ?? 'URL_TO_DEFAULT_IMAGE', 

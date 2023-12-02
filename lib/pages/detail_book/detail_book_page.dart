@@ -17,36 +17,13 @@ class DetailPage extends GetView<DetailController> {
   @override
   Widget build(BuildContext context) {
 
-    // final String bookId = Get.arguments;
-    final DetailController controller = Get.put(DetailController("zyTCAlFPjgYC"));
-
-//     print(controller.book);
-//     return GetBuilder<DetailController>(
-//   init: controller, // Initialize the controller
-//   builder: (controller) {
-//     if (controller.book == null) {
-//       // If the book is null, it means it's still being fetched
-//       return Scaffold(
-//         backgroundColor: bgColor,
-//         appBar: AppBar(
-//           title: Text(
-//             "Loading...",
-//             style: heading2Text,
-//           ),
-//           backgroundColor: Colors.transparent,
-//           elevation: 0,
-//           leading: BackButton(
-//             color: Colors.black,
-//           ),
-//         ),
-//       );
-//     } else {
-//       // If the book is available, display the details
+    final String bookId = Get.arguments;
+    final DetailController controller = Get.put(DetailController(bookId));
       return Scaffold(
         backgroundColor: bgColor,
         appBar: AppBar(
           title: Text(
-            // controller.book.name ?? "unkown title"
+            controller.book.title ?? "unkown title"
              "Unknown Title",
             style: heading2Text,
           ),
@@ -56,72 +33,67 @@ class DetailPage extends GetView<DetailController> {
             color: Colors.black,
           ),
         ),
-      );
-//     }
-//   },
-// );
-
-      //   body: GetBuilder<DetailController>(
-      //   builder: (controller) {
-      //      if (controller.fetchBookDetails(bookId)) {
-      //       return CircularProgressIndicator();
-      //     } else {
-      //       return buildDetailBook(controller.book);
-      //     }
-      //   },
-      // ),
-      //   bottomNavigationBar:
-      //   Padding(
-      //     padding: const EdgeInsets.all(15),
-      //     child: Row(
-      //       children: [
-      //         InkWell(
-      //           onTap: () {},
-      //           child: Container(
-      //             width: 50,
-      //             height: 50,
-      //             decoration: BoxDecoration(
-      //               borderRadius: BorderRadius.circular(16),
-      //               color: purple1,
-      //               ),
-      //             child: Icon(Icons.bookmark_outline_rounded, color: whiteColor,),
-      //           ),
-      //         ),
-      //         SizedBox(width: 10,),
-      //         Expanded(
-      //           child: InkWell(
-      //             onTap: () {
-      //               Get.bottomSheet(
-      //                   GetItWidget(),
-      //                 shape: OutlineInputBorder(
-      //                   borderRadius:
-      //                     BorderRadius.only(
-      //                         topLeft: Radius.circular(50),
-      //                         topRight: Radius.circular(50)),
+        body: GetBuilder<DetailController>(
+        builder: (controller) {
+           if (controller.isLoading.isTrue) {
+            return CircularProgressIndicator();
+          } else {
+            return buildDetailBook(controller.book);
+          }
+        },
+      ),
+        bottomNavigationBar:
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: Row(
+            children: [
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: purple1,
+                    ),
+                  child: Icon(Icons.bookmark_outline_rounded, color: whiteColor,),
+                ),
+              ),
+              SizedBox(width: 10,),
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    Get.bottomSheet(
+                        GetItWidget(),
+                      shape: OutlineInputBorder(
+                        borderRadius:
+                          BorderRadius.only(
+                              topLeft: Radius.circular(50),
+                              topRight: Radius.circular(50)),
       
-      //                 )
+                      )
       
-      //               );
-      //             },
-      //             child: Container(
-      //               height: 50,
-      //               decoration: BoxDecoration(
-      //                 color: purple1,
-      //                 borderRadius: BorderRadius.circular(16)
-      //               ),
-      //               child: Center(
-      //                 child: Text(
-      //                     "Get it",
-      //                     style: heading2Text.copyWith(color: whiteColor)
-      //                   ),
-      //               )
-      //               ),
-      //             ),
-      //           ),
-      //       ],
-      //     ),
-        // )
-  //   );
+                    );
+                  },
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: purple1,
+                      borderRadius: BorderRadius.circular(16)
+                    ),
+                    child: Center(
+                      child: Text(
+                          "Get it",
+                          style: heading2Text.copyWith(color: whiteColor)
+                        ),
+                    )
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        )
+    );
   }
 }
 
