@@ -37,7 +37,7 @@ class Book {
       title: volumeInfo['title'],
       author: volumeInfo['authors'] != null
         ? volumeInfo['authors'].join(', ')
-        : 'not available',
+        : 'not available',  
       description: volumeInfo['description'] ?? "---",
       publishedDate: volumeInfo['publishedDate'] ?? "---",
       pages: '${volumeInfo['pageCount']}',

@@ -30,21 +30,26 @@ class Api {
   Future<Book> getDetailBook(String bookId) async {
     
     final _detailBook = '${App.baseUrl}books/v1/volumes/$bookId?key=${App.apiKey}';
-    final response = await http.get(Uri.parse(_detailBook));
 
-    if (response.statusCode == 200) {
+    try {
+      final response = await http.get(Uri.parse(_detailBook));
 
-      final dynamic data = json.decode(response.body);
-      
-      if (data['volumeInfo'].isNotEmpty) {
-        final Book book = Book.fromJson(data['volumeInfo']);
-        return book;
-      } else {
-        throw Exception('No data found for book with ID: $bookId');
+      if (response.statusCode == 200) {
+
+      final dynamic data = json.decode(response.body);     
+         
+        if (data.containsKey('volumeInfo')) {
+          final Book book = Book.fromJson(data['volumeInfo']);
+          return book;
+        } else {
+          throw Exception('No volumeInfo found for book with ID: $bookId');
+        }
+      } 
+      else {
+        throw Exception('Failed to load data. Status code: ${response.statusCode}');
       }
-
-    } else {
-      throw Exception('Failed to load data. Status code: ${response.statusCode}');
+    } catch(e) {
+        throw Exception('Failed to load data: $e');
     }
   }
 
