@@ -6,17 +6,23 @@ import 'package:readiverse_app/pages/login_page.dart';
 import 'package:readiverse_app/routes/app_routes.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'firebase_options.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
-final GoogleSignIn _googleSignIn = GoogleSignIn(
-  scopes: [
-    'email',
-    'https://www.googleapis.com/auth/contacts.readonly',
-  ],
-);
+// final GoogleSignIn _googleSignIn = GoogleSignIn(
+//   scopes: [
+//     'email',
+//     'https://www.googleapis.com/auth/contacts.readonly',
+//   ],
+// );
 
 
 class MyApp extends StatelessWidget {
