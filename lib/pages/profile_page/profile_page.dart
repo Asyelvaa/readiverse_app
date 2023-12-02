@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:readiverse_app/controllers/profile_page_controller.dart';
@@ -19,6 +20,44 @@ class ProfilePage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: whiteColor,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: purple3,
+          actions: [
+            IconButton(
+              onPressed: () async {
+                // Show a confirmation dialog
+                bool confirmLogout = await Get.dialog(
+                  AlertDialog(
+                    title: Text('Confirmation'),
+                    content: Text('Are you sure you want to log out?'),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Get.back(result: false);
+                        },
+                        child: Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          // Close the dialog and return true
+                          Get.back(result: true);
+                        },
+                        child: Text('Yes'),
+                      ),
+                    ],
+                  ),
+                );
+
+                // Check the result of the dialog
+                if (confirmLogout == true) {
+                  await controller.logout();
+                }
+              },
+              icon: Icon(Icons.logout_rounded, color: blackColor,),
+            ),
+          ],
+        ),
         body: SingleChildScrollView(
           child: Stack(
             children: [
@@ -80,14 +119,6 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                    ElevatedButton(
-                        onPressed: (){
-                          controller.signOut();
-                         },
-                      child: Text ('LogOut',
-                      style: heading2Text.copyWith(color: whiteColor, fontSize: 16),
-                      )
                     ),
 
                   ],

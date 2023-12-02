@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:readiverse_app/controllers/profile_page_controller.dart';
 import 'package:readiverse_app/global/constant/color.dart';
 import 'package:readiverse_app/global/constant/fonts.dart';
 import 'package:readiverse_app/global/constant/images.dart';
 import 'package:readiverse_app/global/constant/themes.dart';
 
 class ProfileContainer extends StatelessWidget {
-  const ProfileContainer({super.key});
+  final controller=Get.put(ProfilePageController());
 
   @override
   Widget build(BuildContext context) {
@@ -37,11 +39,11 @@ class ProfileContainer extends StatelessWidget {
                           child: Column(
                             children: [
                               Text(
-                                'Asyella', 
+                                'Username',
                                 style: heading2Text,
                               ),
                               Text(
-                                'asyellave@gmail.com', 
+                                "${controller.user!.email!}",
                                 style: heading3Text,
                               ),
                               Container(
